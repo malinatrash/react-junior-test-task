@@ -1,15 +1,25 @@
-import './App.css';
-import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import LoginPage from './components/LoginPage/LoginPage'
+import ProfilePage from './components/ProfilePage/ProfilePage'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import './App.css';
 
-function App() {
+const App = () => {
   const state = useSelector(state => state.auth)
-  console.log(state)
+
   return (
     <div className="App">
       <header className="App-header">
-        <LoginPage/>
+        <Router>
+          <Routes>
+            <Route path='/profile'>
+              <ProfilePage login={state.login} />
+            </Route>
+            <Route path='/'>
+              <LoginPage/>
+            </Route>
+          </Routes>
+        </Router>
       </header>
     </div>
   );

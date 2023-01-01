@@ -1,9 +1,12 @@
 import React from 'react'
 import './myButton.css'
+import { Link } from 'react-router-dom'
 
-const MyButton = ({props, text}) => {
+const MyButton = ({text, isDisabled}) => {
 	return (
-		<button className="button">{text}</button>
+		<Link className={`button ${isDisabled}`} to='/' >
+			{text}
+		</Link>
 	)
 }
 
