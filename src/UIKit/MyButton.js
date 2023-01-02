@@ -1,13 +1,19 @@
 import React from 'react'
+import { Outlet, Link } from "react-router-dom";
 import './myButton.css'
-import { Link } from 'react-router-dom'
 
-const MyButton = ({text, isDisabled}) => {
+export const MyButton = ({text, isDisabled}) => {
+	const navigate = () => {
+
+	}
 	return (
-		<Link className={`button ${isDisabled}`} to='/' >
-			{text}
-		</Link>
+		<button
+			to='/profile'
+			disabled={isDisabled}
+			className='button'
+		>
+			<Link className='button' to={`profile`}>{text}</Link>
+		</button>
 	)
 }
 
-export default MyButton

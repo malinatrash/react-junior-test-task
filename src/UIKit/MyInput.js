@@ -1,6 +1,6 @@
 import React from 'react'
 import './myInput.css'
-const MyInput = ({field, method }) => {
+export const MyInput = ({field, method }) => {
 	return (
 		<form>
 			<div className="group">
@@ -12,5 +12,3 @@ const MyInput = ({field, method }) => {
 		</form>
 	)
 }
-
-export default MyInput

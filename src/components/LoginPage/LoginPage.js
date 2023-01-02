@@ -1,32 +1,10 @@
-import MyInput from '../../UIKit/MyInput'
-import MyButton from '../../UIKit/MyButton'
+import { MyInput } from '../../UIKit/MyInput'
+import { MyButton } from '../../UIKit/MyButton'
 import { useDispatch, useSelector } from 'react-redux'
 import { login, password } from '../../redux/actions/actions'
 import { LOGIN, PASSWORD } from '../../constants/constans'
 
-import {
-	useLocation,
-	useNavigate,
-	useParams
-} from "react-router-dom";
-
-function withRouter(Component) {
-	function ComponentWithRouterProp(props) {
-		let location = useLocation();
-		let navigate = useNavigate();
-		let params = useParams();
-		return (
-			<Component
-				{...props}
-				router={{ location, navigate, params }}
-			/>
-		);
-	}
-
-	return ComponentWithRouterProp;
-}
-
-const LoginPage = () => {
+export const LoginPage = () => {
 	const state = useSelector(state => state.auth)
 	const dispatch = useDispatch()
 
@@ -47,5 +25,3 @@ const LoginPage = () => {
 		</form>
 	)
 };
-
-export default withRouter(LoginPage)
