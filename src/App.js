@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { LoginPage } from './components/LoginPage/LoginPage'
 import ProfilePage from './components/ProfilePage/ProfilePage'
-import { Routes, Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import './App.css';
 
 const App = () => {
@@ -11,8 +11,14 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <Routes>
-            <Route element={<LoginPage />} path='/'/>
-          <Route element={<ProfilePage />} path='/profile'/>
+          <Route
+            path='/'
+            element={<LoginPage/>}
+          />
+          <Route
+            path='/profile'
+            element={<ProfilePage login={state.login}/>}
+          />
         </Routes>
       </header>
     </div>
